@@ -112,7 +112,9 @@ ruff check src tests
 python tests/synthetic_eval.py
 ```
 
-`synthetic_eval.py` scores recall on generated frames. It is not a claim of complete detection.
+`synthetic_eval.py` writes an OCR transcript next to each generated clip and scores the detector against that transcript. When every planted string is matched, the script prints that sensitive-information recall was 1.0 and that the result is not production-ready. That score is the rules matching supplied text. It does not measure whether OCR read the pixels.
+
+A separate check on this machine drew `10.1.2.3` and a synthetic token onto one frame of an eight-frame clip and scanned the file with the real OCR engine. Both strings were found. During that scan, and during the unit tests, OpenCV printed `Targets are not supported by the new graph engine for now` while the face detector loaded. The runs still finished.
 
 ## Limitations
 
