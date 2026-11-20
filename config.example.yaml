@@ -1,0 +1,36 @@
+# Copy to config.yaml and pass --config config.yaml
+# OCR is never a blur by itself. Only validated SENSITIVE / REVIEW_REQUIRED spans are redacted.
+# Standard mode uses one OCR pass. --strict enables inverted + sharpened passes.
+
+frame_stride: 1
+ocr_min_confidence: 0.15
+ocr_run_inverted: false
+ocr_run_sharpen: false
+review_confidence_threshold: 0.75
+bbox_padding_px: 6
+expand_match_to_ocr_line: false
+blur_kernel: 51
+blur_extra_pixelate: 12
+track_iou_threshold: 0.25
+track_max_gap_frames: 8
+track_extend_unmatched: true
+track_hold_unreadable_frames: 10
+face_scale_factor: 1.05
+face_min_neighbors: 3
+face_min_size: 24
+name_min_confidence: 0.55
+handle_min_len: 3
+high_entropy_min_len: 20
+high_entropy_threshold: 3.5
+# OCR dumps and crops contain the sensitive text that was detected. Leave these off
+# unless you are debugging a single file and will delete the report directory afterward.
+save_ocr_dump: false
+save_crops: false
+max_crops: 400
+prefer_gpu: true
+change_scale: 2
+change_pixel_threshold: 10
+change_tile_fraction: 0.002
+change_full_frame_ratio: 0.35
+change_pad_px: 40
+ocr_cache_size: 256

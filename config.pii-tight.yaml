@@ -1,0 +1,30 @@
+# Tight PII redaction: scan every frame, blur only classified spans.
+# Does not expand to the full OCR line or pad large regions.
+
+frame_stride: 1
+ocr_min_confidence: 0.18
+ocr_run_inverted: true
+ocr_run_sharpen: false
+review_confidence_threshold: 0.75
+bbox_padding_px: 3
+expand_match_to_ocr_line: false
+blur_kernel: 41
+blur_extra_pixelate: 10
+track_iou_threshold: 0.25
+track_max_gap_frames: 8
+track_extend_unmatched: true
+track_hold_unreadable_frames: 8
+name_min_confidence: 0.65
+handle_min_len: 4
+high_entropy_min_len: 24
+high_entropy_threshold: 3.6
+save_ocr_dump: false
+save_crops: false
+max_crops: 400
+prefer_gpu: true
+change_scale: 2
+change_pixel_threshold: 10
+change_tile_fraction: 0.002
+change_full_frame_ratio: 0.35
+change_pad_px: 24
+ocr_cache_size: 256
